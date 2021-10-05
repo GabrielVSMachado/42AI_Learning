@@ -58,3 +58,7 @@ general-purpose programming language. Created by Guido
 van Rossum and first released in 1991, Python\'s design philosophy
 emphasizes code readability with its notable use of significant
 whitespace.""") == string_result(234, 5, 187, 8, 30)
+
+
+def test_two_args():
+    assert text_analyzer("Python", "2.0") == "ERROR"

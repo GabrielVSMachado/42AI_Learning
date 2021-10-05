@@ -1,17 +1,14 @@
-def text_analyzer(text=None) -> str:
+def text_analyzer(text=None, *args) -> str:
     """Return a string with the number of characters and other elements:
     number of upper_cases, lower_cases, punctuation_marks and spaces"""
+    if len(args) != 0:
+        return "ERROR"
     while text is None:
-        print("What is the text to analyse?")
-        text = input()
-    num_characters = len(text)
-    upper_letters = len([i for i in text if i.isupper()])
-    lower_letters = len([i for i in text if i.islower()])
-    spaces = len([i for i in text if i.isspace()])
+        text = input("What is the text to analyse?\n")
     punctuation_marks = len([i for i in text if not (i.islower() or
                             i.isspace() or i.isupper() or i.isdigit())])
-    return f"""The text contains {num_characters} characters:\n
-- {upper_letters} upper letters\n
-- {lower_letters} lower letters\n
+    return f"""The text contains {len(text)} characters:\n
+- {len([i for i in text if i.isupper()])} upper letters\n
+- {len([i for i in text if i.islower()])} lower letters\n
 - {punctuation_marks} punctuation marks\n
-- {spaces} spaces"""
+- {len([i for i in text if i.isspace()])} spaces"""
