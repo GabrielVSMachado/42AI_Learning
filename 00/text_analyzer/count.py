@@ -8,8 +8,8 @@ def text_analyzer(text=None) -> str:
     upper_letters = len([i for i in text if i.isupper()])
     lower_letters = len([i for i in text if i.islower()])
     spaces = len([i for i in text if i.isspace()])
-    punctuation_marks = num_characters - (spaces +
-                                          upper_letters + lower_letters)
+    punctuation_marks = len([i for i in text if not (i.islower() or
+                            i.isspace() or i.isupper() or i.isdigit())])
     return f"""The text contains {num_characters} characters:\n
 - {upper_letters} upper letters\n
 - {lower_letters} lower letters\n
