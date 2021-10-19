@@ -1,4 +1,4 @@
-def filterwords(to_filter: str, lenght: int) -> list:
+def filterwords(to_filter: str, lenght: int):
     try:
         list_filtered = [j for j in [i.strip("!:;?.,") for i in to_filter.split(' ')] if len(j) > lenght]
     except BaseException:
@@ -11,4 +11,4 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         sys.exit("ERROR")
 
-    print(filterwords(sys.argv[1], sys.argv[2]))
+    print(filterwords(sys.argv[1], int(sys.argv[2])))
